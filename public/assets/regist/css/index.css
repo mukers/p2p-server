@@ -1,0 +1,49 @@
+body{
+	background-image: url("../images/login_background.jpg");
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-color: #fedc71;
+}
+#log{
+	position: fixed;
+	top: 20px;
+	left: 50px;
+	display: block;
+}
+#frmRegist {
+	background-color: #fff;
+	width: 550px;
+	margin: 0 auto;
+	padding: 27px 27px 0 27px;
+	border-top: 2px solid #E8868B;
+	border-bottom: 1px solid #d6d6d6;
+	border-left: 1px solid #d6d6d6;
+	border-right: 1px solid #d6d6d6;
+	-webkit-box-shadow: 0 0 5px 2px rgba(0,0,0,.19);
+	-moz-box-shadow: 0 0 5px 2px rgba(0,0,0,.19);
+	box-shadow: 0 0 10px 3px rgba(0,0,0,.17);
+	position: absolute;
+	right: 20%;
+	top: 50%;
+	margin-top: -220px;
+}
+
+#frmRegist .form-title {
+	font-size: 18px;
+	font-weight: bold;
+	border-left: solid 5px #E8868B;
+	padding-left: 12px;
+	line-height: 19px;
+	margin-bottom:20px;
+}
+
+#frmRegist > .form-error { padding-bottom:10px; color:#a94442; display:none; }
+
+#frmRegist .form-group small.help-block { position: absolute; text-align:left; left:305px; top:10px;  z-index:8; white-space: nowrap; }
+#frmRegist .form-group { margin-bottom:21px; }
+#frmRegist .form-group .form-error { color:#a94442; display:none; }
+#frmRegist .form-group > div { padding:0; }
+#frmRegist .form-group .glyphicon { font-size:18px; }
+#frmRegist .form-group .form-control-static { font-size:14px; line-height:46px; padding:0 16px; }
+#frmRegist .form-group.buttons { padding-top:11px; }
+#frmRegist .form-group.buttons p { margin:5px 0 0 0; }

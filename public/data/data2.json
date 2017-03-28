@@ -1,0 +1,113 @@
+{
+  "detail": {
+    "totalInvestmentAmt": 494902.78,
+    "totalBillAmt": 500000.00,
+    "totalDueYield": 5097.22,
+    "weightedAverageYield": 0.0367,
+    "totalBillCnt": 1,
+    "isPartSubmit": "NO",
+    "latestRepayTime": 1474560000000,
+    "itrtBeginTime": null
+  },
+  "invest": {
+      "bar": {
+        "2016-07": 0.00,
+        "2016-08": 0.00,
+        "2016-09": 500000.00,
+        "2016-10": 0.00,
+        "2016-11": 0.00,
+        "2016-12": 0.00
+      },
+      "pie2": {
+        "5%以下": 500000.00,
+        "5%-6%": 0.00,
+        "6%-7%": 0.00,
+        "7%-8%": 0.00,
+        "8%-9%": 0.00,
+        "9%以上": 0.00
+      },
+      "pie1": {
+        "国行": 500000.00,
+        "股份": 0.00,
+        "城商": 0.00,
+        "农商": 0.00,
+        "农信": 0.00,
+        "其他": 0.00
+      }
+    },
+  "list": {
+    "pageNo": 1,
+    "pageSize": 10,
+    "orderBy": null,
+    "order": null,
+    "autoCount": true,
+    "totalPage": 1,
+    "start": 0,
+    "result": [
+      {
+        "id": 78,
+        "billNo": "0876543210321666",
+        "fincCycle": 2,
+        "remainDeadline": 100,
+        "yearlyRate": 0.038100,
+        "discountRate": 0.036700,
+        "faceAmt": 500000.00,
+        "subscriptionAmt": 494902.78,
+        "accountDate": 1474560000000,
+        "acceptBankTypeCd": 0,
+        "acceptBankName": "测试数据分处",
+        "productInfoId": 74
+      },
+      {
+        "id": 60,
+        "billNo": "0876543210321698",
+        "fincCycle": 4,
+        "remainDeadline": 36,
+        "yearlyRate": 0.030500,
+        "discountRate": 0.029600,
+        "faceAmt": 200000.00,
+        "subscriptionAmt": 199408.00,
+        "accountDate": 1469030400000,
+        "acceptBankTypeCd": 1,
+        "acceptBankName": "中国工商银行股份有限公司北京通州支行新华分理处",
+        "productInfoId": 62
+      },
+      {
+        "id": 64,
+        "billNo": "0876543210321699",
+        "fincCycle": 6,
+        "remainDeadline": 37,
+        "yearlyRate": 0.031600,
+        "discountRate": 0.029600,
+        "faceAmt": 200000.00,
+        "subscriptionAmt": 199391.56,
+        "accountDate": 1469116800000,
+        "acceptBankTypeCd": 1,
+        "acceptBankName": "中国工商银行股份有限公司北京通州支行新华分理处",
+        "productInfoId": 63
+      },
+      {
+        "id": 41,
+        "billNo": "5000000000000011",
+        "fincCycle": 7,
+        "remainDeadline": 38,
+        "yearlyRate": 0.037300,
+        "discountRate": 0.035000,
+        "faceAmt": 250000.00,
+        "subscriptionAmt": 249076.39,
+        "accountDate": 1469376000000,
+        "acceptBankTypeCd": 5,
+        "acceptBankName": "天津农村合作银行",
+        "productInfoId": 41
+      }
+    ],
+    "totalCount": 4,
+    "orderBySetted": false,
+    "totalPages": 1,
+    "hasNext": false,
+    "nextPage": 1,
+    "hasPre": false,
+    "prePage": 1,
+    "first": 1
+  }
+}

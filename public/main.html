@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  
+  <head>
+    <meta charset="utf-8" />
+    <title>jQuery项目实战【动脑学院】</title>
+    <meta name="keywords" content="1" />
+    <meta name="description" content="1" />
+    <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" />
+    <link rel="BOOKMARK" href="favicon.ico" />
+    <link rel="FAVICON" href="favicon.ico" />
+    <!-- Bootstrap core CSS -->
+    <!-- <link rel="stylesheet" href="assets/plug-in/fontawesome/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="assets/plug-in/bootstrap-3.3.0/css/bootstrap.min.css" />
+    <link href="assets/plug-in/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/dn-common.css" />
+    <link rel="stylesheet" href="assets/main/css/index.css" /></head>
+  
+  <body>
+    <!-- 内容 -->
+    <div class="container-fluid body">
+      <!-- <form id="investForm" action="/invest/toOrder" method="POST"></form> -->
+      <form id="mainForm" class="form-horizontal">
+        <div class="panel main">
+          <div class="panel-heading">我要投资-票据筛选</div>
+          <div class="panel-body row">
+            <div class="col-xs-4">
+              <div class="panel">
+                <div class="panel-heading">
+                  筛选条件
+                  <span class="pull-right glyphicon glyphicon-chevron-up btn-coll" data-toggle="#filter"></span></div>
+                <div class="panel-body">
+                  <div id="filter">
+                    <!-- <div class="form-group"> -->
+                    <!-- <label for="" class="col-sm-6 control-label">允许部分成交：</label> -->
+                    <!-- <div class="col-sm-6"> -->
+                    <!-- </div> -->
+                    <!-- </div> -->
+                    <div class="form-group">
+                      <label for="" class="col-sm-5 control-label">票面总金额：</label>
+                      <div class="input-group">
+                        <input type="text" name="querys.billAmt" id="faceAmount" class="form-control form-money" 
+                        data-bv-greaterthan="0" 
+                        data-bv-greaterthan-message="* 输入有误（金额必须大于0）" 
+                        data-bv-amount="true" 
+                        data-bv-amount-message="* 输入有误（金额最多保留两位小数）" />
+                        <span class="input-group-addon">元</span></div>
+                    </div>
+                    <div class="form-group">
+                      <label for="" class="col-sm-5 control-label">最低贴现率：</label>
+                      <div class=" input-group">
+                        <input type="text" name="querys.discountRate" class="form-control" 
+                         data-bv-rate="true"
+                         data-bv-rate-message="* 无效的利率值（利率最多保留两位小数并且不得大于24）"/>
+                        <span class="input-group-addon">%</span></div>
+                    </div>
+                    <div class="form-group">
+                      <label for="" class="col-sm-5 control-label">到账日：</label>
+                      <div class=" input-group date form-date" data-picker-position="bottom-left" date-relative="#latestAccountDateTo">
+                        <input type="text" name="querys.latestAccountDateFrom" class="form-control" size="16" value="" readonly="" />
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-remove"></i>
+                        </span>
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-calendar"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div id="latestAccountDateTo" class="col-sm-offset-5  input-group date form-date" data-picker-position="bottom-left">
+                        <input type="text" name="querys.latestAccountDateTo" class="form-control" size="16" value="" readonly="" />
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-remove"></i>
+                        </span>
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-calendar"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="tab-form">
+                      <ul id="bankDimens" class="nav nav-tabs row" role="tablist">
+                        <li role="presentation" class="col-sm-6">
+                          <a href="#stab1" role="tab" data-toggle="tab">特定承兑人</a></li>
+                        <li role="presentation" class="col-sm-6 active">
+                          <a href="#stab2" role="tab" data-toggle="tab">承兑人类型
+                            <span class="pull-right ico ico-check chk-all checked" data-toggle=".btn-check"></span></a>
+                        </li>
+                      </ul>
+                      <div class="tab-content">
+                        <div class="tab-content">
+                          <div id="stab1" class="tab-pane" role="tabpanel">
+                            <div class="form-group dropdown">
+                              <!-- <input type="text" class="form-control" data-toggle="dropdown" data-action="/invest/acceptBank" data-name="acceptBankName" data-value="acceptBankName"> -->
+                              <!-- <ul class="dropdown-menu" role="menu" style="display:none;"></ul> -->
+                              <!-- <input name="querys.acceptBank" type="hidden" value="" />-->
+                              <!-- bookingBillInfoVO.bearerOpenBankName -->
+                              <input type="text" value="" name="querys.acceptBank" autocomplete="off" class="pull-down-menu form-control" data-toggle="dropdown" data-action="/common/searchBankfoList" data-name="orgName" data-value="orgNo" placeholder="请输入持票人开户行名称" />
+                              <ul class="dropdown-menu" role="menu" style="display:none;"></ul>
+                              <!-- <input name="querys.acceptBank" type="hidden"> -->
+                              <!-- <input type="text" -->
+                              <!-- data-name="orgName" data-value="orgNo" placeholder="请输入持票人开户行名称"> -->
+                              <!-- <ul class="dropdown-menu" role="menu" style="display:none;"></ul> -->
+                              <!-- <input name="querys.acceptBank" type="hidden"> --></div>
+                          </div>
+                          <div id="stab2" class="tab-pane form-group check-group active" role="tabpanel">
+                            <div class="col-sm-4 acceptBankType" codevalue="0" codename="国行" codedesc="国有股份制银行">
+                              <button type="button" class="btn btn-block ico btn-check checked" title="国有股份制银行">国行</button>
+                              <input type="checkbox" name="querys.acceptBankType" value="0" style="position:absolute;" checked="checked" /></div>
+                            <div class="col-sm-4 acceptBankType" codevalue="1" codename="股份" codedesc="其他股份制银行">
+                              <button type="button" class="btn btn-block ico btn-check checked" title="其他股份制银行">股份</button>
+                              <input type="checkbox" name="querys.acceptBankType" value="1" style="position:absolute;" checked="checked" /></div>
+                            <div class="col-sm-4 acceptBankType" codevalue="2" codename="城商" codedesc="城市商业银行">
+                              <button type="button" class="btn btn-block ico btn-check checked" title="城市商业银行">城商</button>
+                              <input type="checkbox" name="querys.acceptBankType" value="2" style="position:absolute;" checked="checked" /></div>
+                            <div class="col-sm-4 acceptBankType" codevalue="3" codename="农商" codedesc="农村商业银行">
+                              <button type="button" class="btn btn-block ico btn-check checked" title="农村商业银行">农商</button>
+                              <input type="checkbox" name="querys.acceptBankType" value="3" style="position:absolute;" checked="checked" /></div>
+                            <div class="col-sm-4 acceptBankType" codevalue="4" codename="农信" codedesc="农村信用合作社">
+                              <button type="button" class="btn btn-block ico btn-check checked" title="农村信用合作社">农信</button>
+                              <input type="checkbox" name="querys.acceptBankType" value="4" style="position:absolute;" checked="checked" /></div>
+                            <div class="col-sm-4 acceptBankType" codevalue="5" codename="其他" codedesc="其他银行">
+                              <button type="button" class="btn btn-block ico btn-check checked" title="其他银行">其他</button>
+                              <input type="checkbox" name="querys.acceptBankType" value="5" style="position:absolute;" checked="checked" /></div>
+                            <div class="yearlyRateArea" codevalue="0" codename="5%以下" codedesc="0,0.05" style="display:none">5%以下</div>
+                            <div class="yearlyRateArea" codevalue="1" codename="5%-6%" codedesc="0.05,0.06" style="display:none">5%-6%</div>
+                            <div class="yearlyRateArea" codevalue="2" codename="6%-7%" codedesc="0.06,0.07" style="display:none">6%-7%</div>
+                            <div class="yearlyRateArea" codevalue="3" codename="7%-8%" codedesc="0.07,0.08" style="display:none">7%-8%</div>
+                            <div class="yearlyRateArea" codevalue="4" codename="8%-9%" codedesc="0.08,0.09" style="display:none">8%-9%</div>
+                            <div class="yearlyRateArea" codevalue="5" codename="9%以上" codedesc="0.09,1" style="display:none">9%以上</div></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-6">
+                      <button id="filtrate" type="submit" class="btn btn-block btn-primary">筛选</button></div>
+                    <div class="col-sm-6 last">
+                      <button id="invest" type="button" form="investForm" class="btn btn-block btn-danger" disabled="">投资</button></div>
+                  </div>
+                  <div id="detail-data">
+                    <div class="well well-sm">投资金额：
+                      <span class="pull-right" unit="元">
+                        <strong id="totalInvestmentAmt" class="money" data-format-type="amount"></strong>元</span></div>
+                    <div class="well well-sm">票面金额：
+                      <span class="pull-right">
+                        <strong id="totalBillAmt" class="money" data-format-type="amount"></strong>元</span></div>
+                    <div class="well well-sm" style="padding-right:12px;">到期收益：
+                      <span class="pull-right ico btn-help"></span>
+                      <span class="pull-right">
+                        <strong id="totalDueYield" class="money" data-format-type="amount"></strong>元</span>
+                    </div>
+                    <div class="well well-sm" style="padding-right:12px;">加权平均贴现率：
+                      <span class="pull-right ico btn-help"></span>
+                      <span class="pull-right">
+                        <strong id="weightedAverageYield" class="percent" data-format-type="rate"></strong>%</span>
+                    </div>
+                    <div class="well well-sm last">已选票据笔数：
+                      <span class="pull-right ico btn-help"></span>
+                      <span class="pull-right">
+                        <strong id="totalBillCnt" class="count" data-format-type="integer"></strong>笔</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-8x">
+              <div class="tab-main">
+                <div id="tab-disabled"></div>
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active">
+                    <a href="#tab1" role="tab" data-toggle="tab" meta-url="/invest.json" meta-target="invest" lazy-load="false">当前可投票据</a></li>
+                  <li role="presentation" load="true">
+                    <a href="#tab3" role="tab" data-toggle="tab" meta-url="/flow.json" meta-target="flow" lazy-load="true">当前现金流量</a></li>
+                  <li role="presentation" hidden="" class="hidden" load="true">
+                    <a href="#tab2" role="tab" data-toggle="tab" meta-url="/overview.json" meta-target="overview" lazy-load="true">已选票据概览</a></li>
+                  <li role="presentation" hidden="" class="hidden" load="true">
+                    <a href="#tab4" role="tab" data-toggle="tab" meta-url="/forecast.json" meta-target="forecast" lazy-load="true">投后现金流量预测</a></li>
+                </ul>
+                <div id="chart" class="tab-content">
+                  <div id="tab1" role="tabpanel" class="tab-pane active">
+                    <div class="chart-area">
+                      <div class="loading"></div>
+                      <div id="tab1-pie1" class="chart"></div>
+                      <div class="detail"></div>
+                    </div>
+                    <div class="chart-area chart-pie2">
+                      <div class="loading"></div>
+                      <div id="tab1-pie2" class="chart"></div>
+                      <div class="detail"></div>
+                    </div>
+                    <div class="chart-area">
+                      <div class="loading"></div>
+                      <div id="tab1-bar" class="chart"></div>
+                      <div id="tab1-line" class="chart" style="display:none"></div>
+                      <div class="detail"></div>
+                    </div>
+                  </div>
+                  <div id="tab2" role="tabpanel" class="tab-pane">
+                    <div class="chart-area">
+                      <div class="loading"></div>
+                      <div id="tab2-pie1" class="chart"></div>
+                      <div class="detail"></div>
+                    </div>
+                    <div class="chart-area chart-pie2">
+                      <div class="loading"></div>
+                      <div id="tab2-pie2" class="chart"></div>
+                      <div class="detail"></div>
+                    </div>
+                    <div class="chart-area">
+                      <div class="loading"></div>
+                      <div id="tab2-bar" class="chart"></div>
+                      <div id="tab2-line" class="chart" style="display:none"></div>
+                      <div class="detail"></div>
+                    </div>
+                  </div>
+                  <div id="tab3" role="tabpanel" class="tab-pane">
+                    <div class="chart-area">
+                      <div class="loading"></div>
+                      <div id="tab3-bar" class="chart"></div>
+                      <div class="detail"></div>
+                    </div>
+                    <div class="chart-area">
+                      <div class="loading"></div>
+                      <div id="tab3-line" class="chart" style="width:100%;"></div>
+                    </div>
+                  </div>
+                  <div id="tab4" role="tabpanel" class="tab-pane">
+                    <div class="chart-area">
+                      <div class="loading"></div>
+                      <div id="tab4-bar" class="chart"></div>
+                      <div class="detail"></div>
+                    </div>
+                    <div class="chart-area">
+                      <div class="loading"></div>
+                      <div id="tab4-line" class="chart" style="width:100%;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel list">
+          <div class="loading"></div>
+          <div class="panel-heading">已选择票据明细
+            <span id="btnCollList" class="pull-right glyphicon glyphicon-chevron-up btn-coll" data-toggle="#billList"></span></div>
+          <table id="billList" class="table table-striped">
+            <thead>
+              <tr>
+                <th>
+                  <span class="ico inp-check inp-chk-all" data-toggle="#billList tbody .inp-check"></span>
+                </th>
+                <th>票据编号</th>
+                <th>承兑行</th>
+                <th class="order null" by="discountRate">贴现率
+                  <span class="caret"></span></th>
+                <th>票面金额</th>
+                <th>投资金额</th>
+                <th>剩余期限</th>
+                <th class="order null" by="accountDate">到账日
+                  <span class="caret"></span></th>
+              </tr>
+              <tr class="no_data_display hidden">
+                <td colspan="8">暂无数据</td></tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+              <tr>
+                <td colspan="9">
+                  <button type="button" class="form-control lazy-load">点击记载更多票据明细</button></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </form>
+    </div>
+    <script src="assets/plug-in/echarts/echarts.min.js"></script>
+    <script src="assets/plug-in/jquery/jquery-2.2.4.js"></script>
+    <script src="assets/plug-in/bootstrap-3.3.0/js/bootstrap.min.js"></script>
+    <script src="assets/plug-in/boostrapValidator/js/boostrapValidator.js"></script>
+    <script src="assets/plug-in/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="assets/plug-in/bootstrap-datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="assets/dn-common.js"></script>
+    <script src="assets/main/js/metaData.js"></script>
+    <script src="assets/main/js/index.js"></script>
+  </body>
+
+</html>

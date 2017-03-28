@@ -1,0 +1,95 @@
+#chart div.tab-pane{
+	height:787px;
+}
+#chart div.tab-pane div.chart-area{
+	position:relative;
+	width:100%;
+	height:50%;
+	padding:20px;
+}
+#chart div.tab-pane div.chart-pie2{
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	display:none;
+	background-color:#fff;
+	border-bottom:1px solid #bbb;
+}
+#chart div.tab-pane div.chart-area:nth-child(1){
+	border-bottom:1px solid #bbb;
+}
+#chart div.tab-pane div.chart-area div.chart{
+	width:70%;
+	height:100%;
+	float:left;backgrou
+}
+#chart div.tab-pane div.chart-area div.detail{
+	width:30%;
+	height:100%;
+	float:left;
+	padding-top: 20px;
+	padding-left: 20px;
+}
+#chart div.tab-pane div.chart-area div.detail dl{
+	width:90%;
+	padding: 0px 20px 0px 15px;
+	border-bottom:1px solid #bbb;
+	height:50px;
+	margin:0px;
+}
+#chart div.tab-pane div.chart-area div.detail dl dt{
+	color:#878787;
+	font-weight:normal;
+	line-height:25px;
+	font-size:14px;
+}
+#chart div.tab-pane div.chart-area div.detail dl dd.number{
+	width:70%;
+	font-size:16px;
+	float:left;
+}
+#chart div.tab-pane div.chart-area div.detail dl dd.unit{
+	width:30%;
+	text-align:right;
+	float:right;
+}
+#billList>tbody>tr:hover{
+	background-color:#fffdef;
+	cursor:pointer;
+}
+#tab-disabled{
+	position:absolute;
+	height:47px;
+	width:100%;
+	top:155px;
+	left:0px;
+	z-index:1;
+}
+
+.icon-conf i{
+	font-size:30px;
+}
+
+.panel.main > .panel-body .content-title { 
+    width:1000px;
+    margin:0 auto;
+    padding:0 20px;
+	border-bottom: 1px solid #dddddd; 
+}
+
+.panel.main > .panel-body .content-title h4 { 
+	line-height:50px; 
+	color:#565656;    
+	font-weight: bold;
+}
+
+.panel.main > .panel-body .bill-info {
+    width:900px;
+    margin:20px auto;
+}
+
+.panel.main > .panel-body .bill-info .form-group {
+    margin-bottom:5px;
+}
